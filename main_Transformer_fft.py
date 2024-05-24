@@ -20,7 +20,7 @@ from utils.util import merge_dataset, split_data_label, split_data_label_tv, dow
     make_one_shot_dataset, change_windowsize
 from sklearn.metrics import confusion_matrix, accuracy_score, precision_score, recall_score, f1_score
 
-# 用0号GPU加速
+
 os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 os.environ['TORCH_CUDA_CACHE_PATH'] = '/home/cuda_cache'
 
@@ -66,8 +66,6 @@ class Main_Transformer:
 
         self.model_path = args.model_path
         self.is_mask = args.is_mask
-
-        # self.init_model()
 
     def init_seed(self):
         random.seed(args.seed)
@@ -184,7 +182,6 @@ class Main_Transformer:
                 x_fft = x_fft.cuda()
                 y = y.cuda()
                 output = self.model(x_orgin)
-                # np.save('./temp_file/attn_map_frequencydomain_time.npy', attn_map.cpu().numpy())
                 predicted = torch.max(output, 1)[1]
                 y_true = y_true + y.tolist()
                 y_pred = y_pred + predicted.tolist()

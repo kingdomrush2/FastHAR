@@ -20,7 +20,6 @@ def merge_dataset(data, label):
     return data[index], np.array(label_new)
 
 
-# 筛选
 def select_data(data, labels):
     user_label_index, position_label_index = 1, 2
     data = data[labels[:, 0, position_label_index] == 2, ...]

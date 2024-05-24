@@ -8,7 +8,7 @@ import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
-from models.Transformer import TimeSeriesTransformer
+from models.FastHAR import TimeSeriesTransformer
 import argparse
 from utils.dataloader import  IMUDataset_fft
 import os
